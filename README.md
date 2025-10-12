@@ -97,5 +97,5 @@ Queda por fuera del alcance el detalle las operaciones logísticas (tiempos de e
 Identificar clusters de clientes en el e-commerce de Olist que permitan diseñar campañas de marketing segmentadas y personalizadas, con el fin de mejorar la retención, la fidelización y el valor de vida del cliente.
 
 **Descripción de la estructura de carpetas del repo**: 
-_data/raw_: incluye 8 de los 9 archivos utilizados en crudo. El último se puede encontrar en el link de Kaggle. 
-_notebooks_: incluye un archivo con el ánalisis exploratorio inicial, ánalisis descriptivo y graficos.
+- _data/raw_: incluye 8 de los 9 archivos utilizados en crudo. El último se puede encontrar en el link de Kaggle. 
+- _notebooks_: incluye un archivo con el ánalisis exploratorio inicial, ánalisis descriptivo y graficos.
