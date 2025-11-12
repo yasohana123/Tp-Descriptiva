@@ -122,7 +122,11 @@ Identificar clusters de clientes en el e-commerce de Olist que permitan diseñar
 
 
 **Tests de hipótesis**
-
+- _Hipotesis 1 redefinida_: los clientes pueden agruparse en diferentes clusters dependiendo de la recencia. En este caso, realizamos un test de comparacion de medias, y con un pvalue < 0,05 tanto en fact orders como en fact order items, rechazamos H0: las medias de ambos grupos son iguales, llegando a la conclusion de que, tanto en fact ordes como en fact order items se refleja una diferencia de medias.
+  
+- _Hipotesis 3_: realizamos un test de Mann-Whitney en fact orders en el que se rechaza H0: Las distribuciones de delivery days son iguales con reviews <= 3 y > 3 con un p value < 0,05. Esto nos permite concluir que las distribuciones difieren. Tambien, realizamos el test de Spearman en el que obtuvimos una asociacion negativa que es significativa. Esto ultimo nos permite concluir que a mas dias de entrega, menor review score. Mayores delivery days se asocian con peores satisfacciones.
+  
+- _Hipotesis 4_: realizamos un test de Mann-Whitney en fact orders items, en donde se rechaza con un p valor < 0,05 la H0: las distribuciones de % de flete son iguales en cancelados y no cancelados. Como rechazamos, llegamos a la conlcusion de que no son iguales. Por otro lado, para ver si existe la correlacion entre la review y el % de flete hicimos un test de Spearman que nos indico que existe una asociacion negativa pero es muy debil. Tambien, realizamos el test de Kruskal-Walls y concluimos que hay diferencia entre los grupos y mas % de flete se asocia a una ligera reduccion de puntaje promedio. 
 
 **Preprocesamiento de datos para ML**
 
@@ -138,7 +142,11 @@ Identificar clusters de clientes en el e-commerce de Olist que permitan diseñar
 
 -  _PCA:_
     - **Fact_orders:** Realizamos PCA luego de estandarizar e imputar los nulos previamente y llegamos a la conclusión que, por el criterio de Kaiser, se deberian mantener los primeros 12 componentes ya que sus autovalores son > 1.
-    - **Fact_orders_items:** Basandonos en el criterio de Kaiser, en este caso se deben mantener los primeros 6 componentes principales. 
--  
- 
+    - **Fact_orders_items:** Basandonos en el criterio de Kaiser, en este caso se deben mantener los primeros 6 componentes principales.
+    
+-  _Clustering_:
+    - **Fact_orders**: Intentamos realizar clusters a partir de lo observado pero en un principio llegamos a la conclusión de que no se podia determinar una cantidad optima ya que los metodos del codo, la silueta y VRC no coincian entre si. Es por eso que realizamos RFM en el dataset original, primero dividiendo el dataset segun variables de recencia, frecuencia y monetización. Luego, realizamos el escalado de datos, aplicamos PCA en las columnas RFM llegando a que se necesitaban COMPLETAR componentes unicos. Despues, realizando el grafico del codo y de la silueta, a pesar de que no nos coincidian esos criterios, logramos detectar dos clusters distinguibles. En estos casos, logramos ver a simple vista que la media de recencia en ambos clusters difiere. Realizando el test de hipotesis, rechazamos que ambas medias sean iguales. Llegamos a la conclusion de que esto puede servir para realizar campañas de marketing dirigidas a la reactivación de clientes que hace mucho no compran. No logramos sacar conclusiones de las hipotesis planteadas en un principio (la 1 y 2) pero si descubrimos que la recencia es un factor que hay que considerar.
+    - **Fact_order_items**: En este caso, tampoco logramos determinar clusters a partir de lo observado en un principio en los graficos del codo y de la silueta. Es por eso que decidimos aplicar, al igual que en la otra tabla, RFM. Llegamos a la misma conclusion, la recencia es un factor clave a la hora de determinar clusters. Tambien determinamos que 2 clusters era la decision mas adecuada. Las medias de los diferentes grupos en esta variable tambien difieren.  
+
+**Dashboard**: realizamos un tablero que cuenta con 5 paginas. Cada una de estas paginas se asocia a un tema particular. La primera es acerca de los compradores, sus estados y sus ciudades. La segunda es sobre los vendedores, sus estados y sus ciudades. La tercera habla sobre los tiempos de entrega. La cuarta sobre los productos. La quinta y ultima sobre los diferentes medios de pagos. Se realizan graficos que permiten sacar conclusiones y se utilizan filtros dinamicos para una mejor exploracion. 
 
