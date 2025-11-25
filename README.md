@@ -19,7 +19,7 @@ Publica los productos de los vendedores, gestiona pagos, logística y se ocupa d
   - _Olist_geolocation_dataset.csv_: cada fila es un punto geográfico asociado a un prefijo de código postal.
   - _Product_category_name_translation.csv_: es la traducción de las categorías del producto.
   
-- **Tablas con las que trabajamos**: Para trabajar, generamos dos fact tables: la primera, llamada “fact_table_orders” contiene los registros a nivel de cada orden. La segunda, llamada “fact_table_order_items” detalla las órdenes a nivel de los ítems que la componen.
+- **Tablas con las que trabajamos**: Para trabajar, generamos dos fact tables: la primera, llamada “fact_table_orders” contiene los registros a nivel de cada orden. La segunda, llamada “fact_table_order_items” detalla las órdenes a nivel de los ítems que la componen. En notebooks se encuentra la notebook inicial que cuenta con el preprocesamiento detallado de ambas tablas juntas, y dos notebooks por cada fact table. La notebook DETALLE indica un detalle exhaustivo de todos los pasos, exploraciones, decisiones de preprocesamiento y análisis intermedios que se realizaron a lo largo de todas las pruebas. En la notebook FINAL se presenta únicamente el análisis de resultados y las conclusiones finales.
  
 ## 🎯 Objetivo 
 
